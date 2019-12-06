@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxViacepService, Endereco, ErroCep } from '@brunoc/ngx-viacep';
+import { Component, OnInit } from "@angular/core";
+import { NgxViacepService, Endereco, ErroCep } from "@brunoc/ngx-viacep";
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators
-} from '@angular/forms';
+} from "@angular/forms";
 
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material';
-import { ModalComponent } from 'src/app/modal/modal.component';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material";
+import { ModalComponent } from "src/app/modal/modal.component";
 
 @Component({
-  selector: 'app-address',
-  templateUrl: './address.component.html',
+  selector: "app-address",
+  templateUrl: "./address.component.html",
   styleUrls: ['./address.component.scss']
 })
 export class AddressComponent implements OnInit {
@@ -54,6 +54,10 @@ export class AddressComponent implements OnInit {
       .then((enderecos: Endereco[]) => {
         this.isLoading = false;
         if (enderecos.length === 1) {
+          this.snackBar.open(`${enderecos.length} Endereço encontrado!`, 'OK', {
+            duration: 5000,
+            verticalPosition: 'top'
+          });
           enderecos.map(data => {
             this.cep.setValue(data.cep);
             this.ibge.setValue(data.ibge);

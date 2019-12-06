@@ -22,6 +22,14 @@ export class ModalComponent {
   ) {
     this.title = data.title;
     this.enderecos = data.enderecos;
+    this.snackBar.open(
+      `${this.enderecos.length} Endereços encontrados!`,
+      'OK',
+      {
+        duration: 5000,
+        verticalPosition: 'top'
+      }
+    );
   }
 
   onNgModelChange(event) {
