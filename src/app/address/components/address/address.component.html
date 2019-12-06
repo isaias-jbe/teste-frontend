@@ -1,0 +1,134 @@
+<div class="address-container ">
+  <mat-card>
+    <mat-card-title>
+      <mat-toolbar color="accent">
+        <mat-toolbar-row>
+          <mat-icon>room</mat-icon> Buscar Endereço
+          <span class="spacer"></span>
+          <mat-spinner
+            *ngIf="isLoading"
+            diameter="40"
+            strokeWidth="4"
+          ></mat-spinner>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-card-title>
+
+    <mat-card-content>
+      <form (ngSubmit)="getAddress()" [formGroup]="addressForm">
+        <div
+          class="container"
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="center"
+          fxLayoutGap="10px"
+          fxLayoutGap.xs="0"
+        >
+          <div class="item item-1" fxFlex="100%">
+            <mat-form-field fxFlex="75%">
+              <input
+                matInput
+                type="text"
+                formControlName="logradouro"
+                placeholder="Entre com o endereço."
+              />
+              <mat-error *ngIf="logradouro.hasError('required')">
+                Este campo é obrigatório!
+              </mat-error>
+              <mat-error *ngIf="logradouro.hasError('minlength')">
+                A quantidade mínima de caracteres é 5!
+              </mat-error>
+            </mat-form-field>
+            <button mat-button color="warn" [disabled]="addressForm.invalid">
+              <mat-icon>search</mat-icon> ENCONTRAR CEP
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="container"
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="center"
+          fxLayoutGap="10px"
+          fxLayoutGap.xs="0"
+        >
+          <mat-form-field fxFlex="70%">
+            <input
+              readonly
+              matInput
+              type="text"
+              formControlName="localidade"
+              placeholder="Cidade."
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex="30%">
+            <input
+              readonly
+              matInput
+              type="text"
+              formControlName="uf"
+              placeholder="Estado."
+            />
+          </mat-form-field>
+        </div>
+
+        <div
+          class="container"
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="center"
+          fxLayoutGap="10px"
+          fxLayoutGap.xs="0"
+        >
+          <mat-form-field fxFlex="40%">
+            <input
+              readonly
+              matInput
+              type="text"
+              formControlName="cep"
+              placeholder="CEP."
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex="60%">
+            <input
+              readonly
+              matInput
+              type="text"
+              formControlName="bairro"
+              placeholder="Bairro."
+            />
+          </mat-form-field>
+        </div>
+
+        <div
+          class="container"
+          fxLayout
+          fxLayout.xs="column"
+          fxLayoutAlign="center"
+          fxLayoutGap="10px"
+          fxLayoutGap.xs="0"
+        >
+          <mat-form-field fxFlex="70%">
+            <input
+              readonly
+              matInput
+              type="text"
+              formControlName="complemento"
+              placeholder="Complemento."
+            />
+          </mat-form-field>
+          <mat-form-field fxFlex="30%">
+            <input
+              readonly
+              matInput
+              type="text"
+              formControlName="ibge"
+              placeholder="Código IBGE."
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

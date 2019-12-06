@@ -1,0 +1,16 @@
+.address-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+mat-card {
+  width: 70%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

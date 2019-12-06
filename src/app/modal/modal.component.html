@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+
+<mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let endereco of enderecos">
+      <mat-radio-button
+        [value]="endereco"
+        (change)="onNgModelChange($event.value)"
+      >
+        Endereço: {{ endereco.logradouro }}, Complemento:
+        {{ endereco.complemento }}
+      </mat-radio-button>
+    </mat-list-item>
+  </mat-list>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">
+    Fechar
+  </button>
+  <button id="btn_save" class="mat-raised-button mat-accent" (click)="save()">
+    Confirmar
+  </button>
+</mat-dialog-actions>
