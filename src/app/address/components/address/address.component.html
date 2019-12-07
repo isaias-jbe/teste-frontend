@@ -1,7 +1,7 @@
 <div class="address-container ">
   <mat-card>
     <mat-card-title>
-      <mat-toolbar color="accent">
+      <mat-toolbar color="accent" class="mat-elevation-z1">
         <mat-toolbar-row>
           <mat-icon>room</mat-icon> Buscar Endereço
           <span class="spacer"></span>
@@ -24,8 +24,8 @@
           fxLayoutGap="10px"
           fxLayoutGap.xs="0"
         >
-          <div class="item item-1" fxFlex="100%">
-            <mat-form-field fxFlex="75%">
+          <div class="item item-1" fxFlex="70%">
+            <mat-form-field fxFlex>
               <input
                 matInput
                 type="text"
@@ -39,7 +39,14 @@
                 A quantidade mínima de caracteres é 5!
               </mat-error>
             </mat-form-field>
-            <button mat-button color="warn" [disabled]="addressForm.invalid">
+          </div>
+          <div class="item item-2" fxFlex>
+            <button
+              fxFlex
+              mat-button
+              color="warn"
+              [disabled]="addressForm.invalid"
+            >
               <mat-icon>search</mat-icon> ENCONTRAR CEP
             </button>
           </div>
