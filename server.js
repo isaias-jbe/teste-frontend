@@ -3,7 +3,10 @@ const path = require("path");
 const nomeApp = process.env.npm_package_name;
 const app = express();
 
-app.use(express.static(`$/dist/$`));
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
+// app.use(express.static(`$/dist/$`));
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(`$/dist/search-address/index.html`));
